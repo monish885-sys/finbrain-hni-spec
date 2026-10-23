@@ -1,0 +1,1722 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<title>CAPSTONE Project Bible v1.0</title>
+<style>
+  @page { size: A4; margin: 16mm 14mm; }
+  * { box-sizing: border-box; }
+  body {
+    font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Helvetica, Arial, sans-serif;
+    font-size: 10pt;
+    line-height: 1.5;
+    color: #1a1a1a;
+    margin: 0;
+    padding: 0;
+  }
+  h1 {
+    font-size: 20pt;
+    color: #0f172a;
+    border-bottom: 3px solid #2563eb;
+    padding-bottom: 8px;
+    margin: 32px 0 16px 0;
+    page-break-before: always;
+  }
+  body > h1:first-child,
+  h1:first-of-type { page-break-before: avoid; margin-top: 0; }
+  h2 {
+    font-size: 14pt;
+    color: #1e40af;
+    margin: 26px 0 10px 0;
+    border-bottom: 1px solid #e2e8f0;
+    padding-bottom: 4px;
+    page-break-after: avoid;
+  }
+  h3 {
+    font-size: 11.5pt;
+    color: #334155;
+    margin: 18px 0 8px 0;
+    page-break-after: avoid;
+  }
+  h4 {
+    font-size: 10.5pt;
+    color: #475569;
+    margin: 14px 0 6px 0;
+    page-break-after: avoid;
+  }
+  p { margin: 6px 0; }
+  table {
+    width: 100%;
+    border-collapse: collapse;
+    margin: 10px 0;
+    font-size: 9pt;
+    page-break-inside: avoid;
+  }
+  th, td {
+    border: 1px solid #cbd5e1;
+    padding: 5px 7px;
+    text-align: left;
+    vertical-align: top;
+  }
+  th { background: #f1f5f9; font-weight: 600; }
+  tr:nth-child(even) td { background: #f8fafc; }
+  pre {
+    background: #f1f5f9;
+    border: 1px solid #e2e8f0;
+    border-radius: 4px;
+    padding: 10px;
+    font-size: 8pt;
+    line-height: 1.4;
+    white-space: pre-wrap;
+    word-wrap: break-word;
+    page-break-inside: avoid;
+    overflow-x: auto;
+  }
+  code {
+    background: #f1f5f9;
+    padding: 1px 4px;
+    border-radius: 3px;
+    font-size: 8.5pt;
+    font-family: 'SF Mono', Menlo, Consolas, monospace;
+  }
+  pre code { background: none; padding: 0; font-size: 8pt; }
+  blockquote {
+    border-left: 4px solid #2563eb;
+    margin: 10px 0;
+    padding: 8px 14px;
+    background: #eff6ff;
+    color: #1e3a5f;
+  }
+  blockquote p { margin: 4px 0; }
+  hr { border: none; border-top: 1px solid #e2e8f0; margin: 20px 0; }
+  ul, ol { margin: 6px 0; padding-left: 22px; }
+  li { margin: 3px 0; }
+  strong { color: #0f172a; }
+  a { color: #2563eb; text-decoration: none; }
+  /* Keep feature sections together where possible */
+  h2 + h3 { margin-top: 12px; }
+</style>
+</head>
+<body>
+<h1>CAPSTONE</h1>
+<h2>Project Bible — Complete Product &amp; Technical Reference</h2>
+<p><strong>Version:</strong> 1.0<br><strong>Date:</strong> June 30, 2026<br><strong>Status:</strong> Final Draft — Source of Truth<br><strong>Audience:</strong> Founders, developers, investors, product reviewers, future team members  </p>
+<hr>
+<blockquote>
+<p><strong>CAPSTONE</strong> = <strong>C</strong>ontinuous <strong>A</strong>sset <strong>P</strong>ortfolio &amp; <strong>T</strong>ax <strong>O</strong>rchestration <strong>N</strong>eural <strong>E</strong>ngine  </p>
+<p><em>Your bank sees their book. Your CA sees last year. CAPSTONE sees everything — and tells you what to do today.</em></p>
+</blockquote>
+<hr>
+<h2>Table of Contents</h2>
+<ol>
+<li><a href="#1-what-is-capstone">What Is CAPSTONE?</a></li>
+<li><a href="#2-who-is-this-for">Who Is This For?</a></li>
+<li><a href="#3-the-problem-we-solve">The Problem We Solve</a></li>
+<li><a href="#4-what-already-exists-and-why-its-not-enough">What Already Exists (And Why It&#39;s Not Enough)</a></li>
+<li><a href="#5-the-six-core-features-plain-english">The Six Core Features (Plain English)</a></li>
+<li><a href="#6-full-product-modules">Full Product Modules</a></li>
+<li><a href="#7-how-the-app-feels-to-use">How the App Feels to Use</a></li>
+<li><a href="#8-system-architecture-for-developers">System Architecture (For Developers)</a></li>
+<li><a href="#9-data-sources--integrations">Data Sources &amp; Integrations</a></li>
+<li><a href="#10-entity--data-model">Entity &amp; Data Model</a></li>
+<li><a href="#11-ai-layer--architect">AI Layer — ARCHITECT</a></li>
+<li><a href="#12-security-privacy--compliance">Security, Privacy &amp; Compliance</a></li>
+<li><a href="#13-business-model">Business Model</a></li>
+<li><a href="#14-go-to-market--roadmap">Go-to-Market &amp; Roadmap</a></li>
+<li><a href="#15-mvp-build-plan-90-days">MVP Build Plan (90 Days)</a></li>
+<li><a href="#16-success-metrics">Success Metrics</a></li>
+<li><a href="#17-risks--how-we-handle-them">Risks &amp; How We Handle Them</a></li>
+<li><a href="#18-glossary">Glossary</a></li>
+<li><a href="#19-appendix-competitive-landscape">Appendix: Competitive Landscape</a></li>
+</ol>
+<hr>
+<h2>1. What Is CAPSTONE?</h2>
+<p>CAPSTONE is an <strong>AI-powered wealth command layer</strong> for High Net-worth Individuals (HNIs) in India.</p>
+<p>It is <strong>not</strong>:</p>
+<ul>
+<li>A bank app</li>
+<li>A mutual fund distributor</li>
+<li>An ITR filing website</li>
+<li>A net worth tracker for regular savers</li>
+</ul>
+<p>It <strong>is</strong>:</p>
+<ul>
+<li>A single screen that shows <strong>all family wealth</strong> across all accounts, entities, and asset types</li>
+<li>A <strong>24/7 tax radar</strong> that catches problems before the Income Tax Department sends a notice</li>
+<li>An <strong>automated tax-saving engine</strong> that finds legal ways to reduce your tax bill</li>
+<li>An <strong>honesty check</strong> on your wealth managers, who only see their own slice of your money</li>
+<li>A <strong>time machine</strong> that simulates big financial decisions before you make them</li>
+<li>A <strong>survival vault</strong> that tells your family exactly what you own and how to access it if something happens to you</li>
+</ul>
+<p>CAPSTONE sits <strong>above</strong> your banks, brokers, PMS managers, and CA. It does not hold your money. It does not sell you products. It gives you <strong>clarity, control, and action</strong>.</p>
+<hr>
+<h2>2. Who Is This For?</h2>
+<h3>Primary user (the &quot;Principal&quot;)</h3>
+<table>
+<thead>
+<tr>
+<th>Attribute</th>
+<th>Detail</th>
+</tr>
+</thead>
+<tbody><tr>
+<td><strong>Wealth</strong></td>
+<td>₹5 Crore to ₹100 Crore investable assets</td>
+</tr>
+<tr>
+<td><strong>Profile</strong></td>
+<td>Business owners, tech founders, senior executives, inheritors, promoters</td>
+</tr>
+<tr>
+<td><strong>Pain</strong></td>
+<td>Money spread across 10–30 accounts, 2–5 wealth managers, multiple legal entities</td>
+</tr>
+<tr>
+<td><strong>Behaviour</strong></td>
+<td>Checks portfolio often, hates tax surprises, wants control without doing everything manually</td>
+</tr>
+</tbody></table>
+<h3>Secondary users (via permissioned access)</h3>
+<table>
+<thead>
+<tr>
+<th>Role</th>
+<th>What they need</th>
+</tr>
+</thead>
+<tbody><tr>
+<td><strong>Spouse</strong></td>
+<td>Family net worth view, emergency access</td>
+</tr>
+<tr>
+<td><strong>CA / Tax advisor</strong></td>
+<td>Tax ledger, AIS mismatches, harvest recommendations</td>
+</tr>
+<tr>
+<td><strong>RM (Relationship Manager)</strong></td>
+<td>Only their bank&#39;s slice — never full picture</td>
+</tr>
+<tr>
+<td><strong>Family office CIO</strong></td>
+<td>Investment view across entities</td>
+</tr>
+<tr>
+<td><strong>Successor</strong></td>
+<td>Emergency playbook only — triggered by event</td>
+</tr>
+</tbody></table>
+<h3>Who this is NOT for</h3>
+<ul>
+<li>Salaried employees with one bank account and one demat (use FOLO, CRED, etc.)</li>
+<li>UHNIs (₹500Cr+) who already pay ₹50L+/year for a full family office (may white-label CAPSTONE later)</li>
+<li>People who want someone else to manage everything with zero involvement</li>
+</ul>
+<h3>Market size (India, 2026)</h3>
+<ul>
+<li>~390,000 HNWIs, ~$1.65 trillion in wealth (Capgemini World Wealth Report 2026)</li>
+<li>Most HNIs use <strong>multiple wealth managers</strong> — no single firm sees the full picture</li>
+<li>Large share of wealth still managed via Excel, WhatsApp, and informal CA relationships</li>
+<li>India leads globally in AI adoption for finance (86% of affluent investors use AI — HSBC-Ipsos 2026)</li>
+</ul>
+<hr>
+<h2>3. The Problem We Solve</h2>
+<h3>Problem 1: Wealth is invisible and scattered</h3>
+<p>Your money lives in:</p>
+<ul>
+<li>Personal savings account (HDFC)</li>
+<li>Joint account with spouse (ICICI)</li>
+<li>Hindu Undivided Family (HUF) demat</li>
+<li>Private family trust</li>
+<li>Zerodha for stocks</li>
+<li>Groww for mutual funds</li>
+<li>Two PMS accounts</li>
+<li>One AIF (Alternative Investment Fund)</li>
+<li>Real estate in Jaipur and Mumbai</li>
+<li>Gold, insurance, EPF, NPS</li>
+</ul>
+<p><strong>No one</strong> — not your CA, not your HDFC RM, not your spouse — sees the full picture in real time. Everyone works off outdated PDFs and Excel sheets updated once a quarter.</p>
+<h3>Problem 2: Tax notices come from data mismatches, not fraud</h3>
+<p>The Income Tax Department now knows almost everything you do through:</p>
+<ul>
+<li><strong>AIS</strong> (Annual Information Statement) — all income reported by banks, brokers, employers</li>
+<li><strong>26AS</strong> — all TDS deducted</li>
+<li><strong>TIS</strong> (Taxpayer Information Summary) — summary of what&#39;s on file</li>
+</ul>
+<p>Your CA files your return based on documents you give them. If a bank reported ₹50 lakh FD interest to the government but your CA missed it in the return — <strong>you get a notice</strong>. This happens to HNIs who pay every rupee of tax correctly. The system is about <strong>reconciliation</strong>, not evasion.</p>
+<h3>Problem 3: You overpay tax because no one optimizes across accounts</h3>
+<p>Tax-loss harvesting means: sell investments that are in a <strong>loss</strong> to offset profits elsewhere, legally reducing tax. Your HDFC wealth manager cannot see your Zerodha losses. Your Zerodha broker cannot see your Groww gains. <strong>Nobody optimizes across all accounts.</strong> HNIs with surcharge pay up to 26% on short-term gains — every unharvested loss costs real money.</p>
+<h3>Problem 4: Wealth managers have conflicts of interest</h3>
+<p>Your HDFC RM earns commission on products they sell you. They only see HDFC holdings. They may recommend a large-cap fund you <strong>already own</strong> in Zerodha — you pay double fees for the same exposure. PMS managers charge 2% + 20% performance fee — but is anyone tracking if they&#39;re actually beating the market?</p>
+<h3>Problem 5: Big decisions are made on phone calls, not models</h3>
+<p>&quot;I want to route ₹2 Cr through my HUF to buy commercial property&quot; — your CA gives a verbal answer. No one models the tax saved vs money locked up vs compliance timeline. ₹5 crore decisions deserve more than a 15-minute call.</p>
+<h3>Problem 6: Your family is unprepared for emergencies</h3>
+<p>If something happens to you tomorrow:</p>
+<ul>
+<li>Does your spouse know about all 20+ accounts?</li>
+<li>Are nominees updated everywhere?</li>
+<li>Who has the locker key? The property papers? The unlisted share certificates?</li>
+</ul>
+<p>₹2.4 lakh crore lies <strong>unclaimed</strong> in India because families didn&#39;t know money existed (industry estimates).</p>
+<hr>
+<h2>4. What Already Exists (And Why It&#39;s Not Enough)</h2>
+<table>
+<thead>
+<tr>
+<th>Existing Solution</th>
+<th>What It Does</th>
+<th>Why It Fails for HNIs</th>
+</tr>
+</thead>
+<tbody><tr>
+<td><strong>FOLO, Vault, WealthNest</strong></td>
+<td>Net worth app via Account Aggregator</td>
+<td>Individual PAN only; no entity graph; no tax engine</td>
+</tr>
+<tr>
+<td><strong>NetWorthOS, Famli, BYLD</strong></td>
+<td>AI family wealth (early stage)</td>
+<td>No AIS firewall; no cross-broker harvesting; incomplete held-away</td>
+</tr>
+<tr>
+<td><strong>HDFC/ICICI Private Banking</strong></td>
+<td>RM + premium card</td>
+<td>Only sees own AUM; 3–5 legacy systems internally</td>
+</tr>
+<tr>
+<td><strong>Equirus, 360 ONE</strong></td>
+<td>Wealth-tech for their clients</td>
+<td>Captive — won&#39;t optimize tax on competitor-held assets</td>
+</tr>
+<tr>
+<td><strong>EZTax, VittSphere, Saltman</strong></td>
+<td>ITR filing, tax Q&amp;A</td>
+<td>Seasonal (March); not continuous; no live portfolio link</td>
+</tr>
+<tr>
+<td><strong>Asset Vantage, MProfit</strong></td>
+<td>Family office B2B software</td>
+<td>₹50L+ enterprise; not consumer AI-native</td>
+</tr>
+<tr>
+<td><strong>Addepar (global)</strong></td>
+<td>UHNW reporting</td>
+<td>No India tax engine; enterprise-only; no AIS integration</td>
+</tr>
+</tbody></table>
+<p><strong>CAPSTONE&#39;s white space:</strong> Unified family wealth + continuous tax simulation + held-away completeness + AI action cards — <strong>institution-neutral</strong>, owned by the HNI.</p>
+<hr>
+<h2>5. The Six Core Features (Plain English)</h2>
+<p>These six features are the heart of CAPSTONE. Everything else in this document supports them.</p>
+<hr>
+<h3>Feature 1: The &quot;God Mode&quot; Family Dashboard</h3>
+<p><strong>The problem in one sentence:</strong><br>Your wealth is a mess of PDFs and CA Excel sheets spread across you, your spouse, an HUF, and a private trust — and nobody sees it all at once.</p>
+<p><strong>What CAPSTONE does:</strong><br>Puts <strong>everything on one screen</strong>. Automatically connects to banks, Zerodha, PMS, real estate records, and more. You open the app and instantly see:</p>
+<blockquote>
+<p><em>&quot;The family is worth ₹42 Crores. ₹18 Cr is in the HUF. ₹12 Cr is yours personally. ₹4 Cr is tied up in real estate.&quot;</em></p>
+</blockquote>
+<p>No waiting for your CA to manually update a spreadsheet.</p>
+<p><strong>How it works (simple):</strong></p>
+<pre><code>YOU open app
+    ↓
+CAPSTONE pulls data from:
+    • Banks (via Account Aggregator)
+    • Brokers — Zerodha, Groww, Upstox (via AA + CAS statements)
+    • PMS / AIF (via email/CAS parser + manual upload)
+    • Real estate (deed upload + valuation)
+    • Insurance, EPF, NPS (via AA)
+    ↓
+CAPSTONE maps everything to the right person/entity:
+    • You (individual)
+    • Spouse (individual / joint)
+    • HUF
+    • Family Trust
+    • Private Ltd (if applicable)
+    ↓
+One screen shows family total + breakdown by entity + breakdown by asset type
+</code></pre>
+<p><strong>What the user sees on screen:</strong></p>
+<table>
+<thead>
+<tr>
+<th>Section</th>
+<th>Example</th>
+</tr>
+</thead>
+<tbody><tr>
+<td>Family net worth</td>
+<td>₹42.3 Cr ▲ ₹8.2L this month</td>
+</tr>
+<tr>
+<td>By entity</td>
+<td>You ₹12.1 Cr · HUF ₹18.4 Cr · Spouse ₹4.2 Cr · Trust ₹5.1 Cr · RE ₹2.5 Cr</td>
+</tr>
+<tr>
+<td>By asset class</td>
+<td>Equity 38% · Debt 22% · RE 18% · Alts 14% · Cash 8%</td>
+</tr>
+<tr>
+<td>Held-away alert</td>
+<td>58% of wealth is outside your primary bank</td>
+</tr>
+<tr>
+<td>Last updated</td>
+<td>4 hours ago (auto-sync)</td>
+</tr>
+</tbody></table>
+<p><strong>Developer notes:</strong></p>
+<ul>
+<li>Module name: <code>EntityWealthGraph</code></li>
+<li>Requires: AA integration + off-AA ingestion pipeline + entity ownership mapping</li>
+<li>Key challenge: AA does not support HUF/trust/company accounts natively — need document upload + CA feed for these</li>
+<li>See Section 10 for data model</li>
+</ul>
+<hr>
+<h3>Feature 2: The Tax-Notice Firewall</h3>
+<p><strong>The problem in one sentence:</strong><br>Most tax notices happen because your CA missed a transaction that the government <strong>already knows about</strong> via AIS.</p>
+<p><strong>What CAPSTONE does:</strong><br>Connects to government tax data and runs a <strong>24/7 scan</strong>. If a bank reported ₹50 lakh FD interest to the government but it&#39;s missing from your tax file, CAPSTONE flashes a <strong>red warning</strong> and helps fix the mismatch <strong>before</strong> the taxman sends a notice.</p>
+<p><strong>How it works (simple):</strong></p>
+<pre><code>CAPSTONE has YOUR data (from banks, brokers, AA)
+    +
+CAPSTONE has GOVERNMENT data (AIS, 26AS, TIS — with your consent)
+    ↓
+Every night (and on-demand), CAPSTONE compares:
+    &quot;What did the government receive?&quot;  vs  &quot;What does your tax file show?&quot;
+    ↓
+MISMATCH found?
+    → Red alert: &quot;₹50L FD interest from SBI reported in AIS — not in your ledger&quot;
+    → Suggested fix: &quot;Add to income under &#39;Other Sources&#39; — advance tax may apply&quot;
+    → One-click export to CA with full reconciliation memo
+    ↓
+NO mismatch?
+    → Green: &quot;AIS clean — last checked 6 hours ago&quot;
+</code></pre>
+<p><strong>Types of mismatches CAPSTONE catches:</strong></p>
+<table>
+<thead>
+<tr>
+<th>Mismatch Type</th>
+<th>Example</th>
+<th>Consequence if missed</th>
+</tr>
+</thead>
+<tbody><tr>
+<td>Missing income</td>
+<td>FD interest in AIS, not in return</td>
+<td>Notice + interest</td>
+</tr>
+<tr>
+<td>Wrong classification</td>
+<td>Foreign stock gain filed as domestic</td>
+<td>Scrutiny</td>
+</tr>
+<tr>
+<td>TDS not claimed</td>
+<td>TDS in 26AS, not in return</td>
+<td>Lost refund / notice</td>
+</tr>
+<tr>
+<td>Duplicate reporting</td>
+<td>Same gain in AIS twice</td>
+<td>Overpayment / notice</td>
+</tr>
+<tr>
+<td>Schedule FA gap</td>
+<td>US brokerage in AIS, not in foreign asset schedule</td>
+<td>Black Money Act risk</td>
+</tr>
+<tr>
+<td>Schedule AL gap</td>
+<td>Assets not disclosed (income &gt; ₹1 Cr)</td>
+<td>Penalty</td>
+</tr>
+</tbody></table>
+<p><strong>What the user sees:</strong></p>
+<pre><code>┌─────────────────────────────────────────┐
+│  TAX-NOTICE FIREWALL          🟢 CLEAN  │
+│  Last scan: Today, 3:42 AM              │
+├─────────────────────────────────────────┤
+│  AIS entries checked:        847         │
+│  Matched:                    841         │
+│  ⚠️  Needs attention:          6         │
+├─────────────────────────────────────────┤
+│  🔴 SBI FD interest ₹50L — not in ledger │
+│  🟡 Zerodha STCG ₹3.2L — class mismatch  │
+│  [View all] [Export to CA] [Fix now]     │
+└─────────────────────────────────────────┘
+</code></pre>
+<p><strong>Developer notes:</strong></p>
+<ul>
+<li>Module name: <code>TaxNoticeFirewall</code> / <code>AISReconciliationEngine</code></li>
+<li>Requires: Income Tax portal integration (AIS/26AS/TIS fetch with user consent), broker/bank ledger, diff engine</li>
+<li>Output: Reconciliation report (PDF), CA export, pre-filled ITR draft fields (not filing — preparation)</li>
+<li>Legal: User must authenticate via IT portal credentials or e-Filing API; store encrypted, consent-bound</li>
+</ul>
+<hr>
+<h3>Feature 3: The &quot;Free Money&quot; Button (Automated Tax Harvesting)</h3>
+<p><strong>The problem in one sentence:</strong><br>You pay heavy taxes and surcharges on profits, but no one scans <strong>all your brokers</strong> to find legal loss offsets.</p>
+<p><strong>What CAPSTONE does:</strong><br>Scans every stock and mutual fund you own across <strong>all brokers and entities</strong>. Finds investments currently in a <strong>loss</strong>. Pairs them against your <strong>profits</strong> elsewhere. Gives you an Action Card:</p>
+<blockquote>
+<p><em>&quot;Sell these 400 shares of Tata Steel in your Groww account today. It will offset the profits in your HDFC account and legally save you ₹3.2 Lakhs in taxes this year.&quot;</em></p>
+</blockquote>
+<p>You review, confirm, and execute (CAPSTONE does not trade — it tells you exactly what to do).</p>
+<p><strong>How it works (simple):</strong></p>
+<pre><code>CAPSTONE scans ALL portfolios (lot-level):
+    Zerodha: INFY +₹8L (profit), TATASTEEL -₹3.8L (loss)
+    HDFC demat: RELIANCE +₹4L (profit)
+    Groww MF: Large cap fund -₹1.2L (loss)
+    HUF demat: ITC +₹2.5L (profit)
+    ↓
+Tax engine calculates best pairings:
+    &quot;Pair TATASTEEL loss (Groww) against RELIANCE gain (HDFC)&quot;
+    &quot;Pair MF loss against INFY gain&quot;
+    ↓
+Ranks by ₹ saved per ₹ transaction cost
+    ↓
+Action Card generated:
+    WHAT to sell, WHERE, HOW MANY, SAVE how much
+    ↓
+User: [Export to broker] [Share with CA] [Mark as done]
+</code></pre>
+<p><strong>Action Card example:</strong></p>
+<pre><code>┌──────────────────────────────────────────────────┐
+│  💰 FREE MONEY — Tax Harvest Opportunity          │
+│  Save ₹3,20,000 · Execute by March 12, 2026       │
+├──────────────────────────────────────────────────┤
+│  SELL: 400 shares TATASTEEL (Groww, Lot #892)     │
+│  LOSS: ₹3,80,000 (short-term)                    │
+│                                                   │
+│  OFFSETS: RELIANCE gain (HDFC demat) ₹4,00,000    │
+│                                                   │
+│  Without action: Tax ₹1,00,000                    │
+│  With action:    Tax ₹22,500                      │
+│  YOU SAVE:       ₹77,500 (+ surcharge savings)    │
+│                                                   │
+│  [Simulate alternatives] [Export] [Done ✓]        │
+└──────────────────────────────────────────────────┘
+</code></pre>
+<p><strong>Rules the engine must know (India-specific):</strong></p>
+<ul>
+<li>STCG on equity: 20% (post July 2024)</li>
+<li>LTCG on equity: 12.5% above ₹1.25L exemption</li>
+<li>Surcharge slabs: up to 37% on income &gt; ₹5 Cr</li>
+<li>No wash-sale rule in India (but CAPSTONE still models repurchase timing)</li>
+<li>Loss carry-forward: 8 years (must file ITR on time)</li>
+<li>Harvest window: typically Jan–March, but opportunities exist year-round</li>
+</ul>
+<p><strong>Developer notes:</strong></p>
+<ul>
+<li>Module name: <code>TaxHarvestOrchestrator</code></li>
+<li>Requires: Lot-level cost basis across all demats, real-time or EOD prices, tax rule engine</li>
+<li>Does NOT execute trades — generates instructions only</li>
+<li>Must handle: PMS, AIF pass-through gains separately</li>
+</ul>
+<hr>
+<h3>Feature 4: The Wealth Manager &quot;Honesty Check&quot;</h3>
+<p><strong>The problem in one sentence:</strong><br>Your HDFC manager only sees HDFC. Your ICICI guy only sees ICICI. They sell you the same things, double-charge fees, and you never know who&#39;s actually performing.</p>
+<p><strong>What CAPSTONE does:</strong><br>Sits <strong>above all of them</strong> (neutral — not tied to any bank). Alerts you when:</p>
+<ul>
+<li>Your HDFC manager recommends a fund you <strong>already own</strong> in Zerodha</li>
+<li>Two PMS managers have <strong>overlapping holdings</strong> (paying double fees for same stocks)</li>
+<li>A PMS manager is <strong>underperforming</strong> the benchmark after fees</li>
+<li>An RM recommends a product with <strong>high commission</strong> when a cheaper direct alternative exists</li>
+</ul>
+<p><strong>How it works (simple):</strong></p>
+<pre><code>CAPSTONE knows ALL holdings across ALL institutions
+    ↓
+When RM sends recommendation (email parse / manual entry / API):
+    CAPSTONE checks: &quot;Do you already own this?&quot;
+    ↓
+YES → Alert: &quot;You already hold this via Zerodha — 68% overlap&quot;
+    ↓
+CAPSTONE ranks managers quarterly:
+    PMS A: +14.2% gross, -2.1% vs Nifty, 2% fee → net underperformer
+    PMS B: +11.8% gross, +1.4% vs Nifty, 1.5% fee → net outperformer
+    HDFC RM portfolio: 0.8% fee drag on duplicate funds
+</code></pre>
+<p><strong>What the user sees:</strong></p>
+<pre><code>┌──────────────────────────────────────────────────┐
+│  HONESTY CHECK — Manager Scorecard                │
+├──────────────────────────────────────────────────┤
+│  ⚠️  ALERT: HDFC RM recommended &quot;ABC Large Cap&quot;   │
+│      You already own 68% overlap via Zerodha      │
+│      Duplicate fee cost: ~₹42,000/year            │
+├──────────────────────────────────────────────────┤
+│  PMS RANKING (after fees, 12 months)              │
+│  1. Marcellus PMS     +3.2% vs benchmark  ✅       │
+│  2. Ambit PMS         +0.8% vs benchmark  ✅       │
+│  3. XYZ PMS           -2.1% vs benchmark  🔴       │
+├──────────────────────────────────────────────────┤
+│  Wallet share: HDFC 24% · Zerodha 31% · ICICI 18% │
+│  Held-away from primary RM: 61%                   │
+└──────────────────────────────────────────────────┘
+</code></pre>
+<p><strong>Developer notes:</strong></p>
+<ul>
+<li>Module name: <code>ManagerHonestyCheck</code> / <code>HeldAwayCommandCenter</code></li>
+<li>Requires: Full holdings map, benchmark data, fee schedule per product (manual config + AMFI/SEBI data)</li>
+<li>Sensitive: Frame as factual (&quot;overlap detected&quot;) not accusatory (&quot;RM is cheating&quot;) — legal safety</li>
+<li>RM recommendations: email parser, WhatsApp forward, manual entry in v1</li>
+</ul>
+<hr>
+<h3>Feature 5: The &quot;Time Machine&quot; Simulator</h3>
+<p><strong>The problem in one sentence:</strong><br>You make ₹5 crore decisions based on a 15-minute phone call with your CA — with no model, no timeline, no comparison.</p>
+<p><strong>What CAPSTONE does:</strong><br>You tell the AI what you want to do. It instantly runs the math, compares tax saved vs money locked up, and generates a <strong>12-month compliance calendar</strong> — which forms to file, which accounts to open, when to move money.</p>
+<p><strong>Example user query:</strong></p>
+<blockquote>
+<p><em>&quot;I want to route ₹2 Cr through my HUF to buy commercial real estate in Pune.&quot;</em></p>
+</blockquote>
+<p><strong>What CAPSTONE returns:</strong></p>
+<pre><code>┌──────────────────────────────────────────────────┐
+│  TIME MACHINE — Scenario Analysis                 │
+│  Query: Route ₹2Cr via HUF for Pune commercial RE │
+├──────────────────────────────────────────────────┤
+│  TAX COMPARISON                                   │
+│  Route via personal:  Estimated tax ₹28.4L        │
+│  Route via HUF:       Estimated tax ₹18.2L        │
+│  SAVINGS:             ₹10.2L                      │
+│                                                   │
+│  TRADE-OFFS                                       │
+│  • HUF money harder to withdraw (partition risk)  │
+│  • Stamp duty: ₹12L (Maharashtra, 6%)             │
+│  • Rental yield: ~6.5% → ₹13L/year gross          │
+│  • Lock-in: Illiquid — 5+ year hold recommended   │
+├──────────────────────────────────────────────────┤
+│  12-MONTH COMPLIANCE CALENDAR                     │
+│  Month 1:  Open HUF current account (SBI)         │
+│  Month 1:  Board resolution for property purchase │
+│  Month 2:  Transfer ₹2Cr to HUF (gift tax check)  │
+│  Month 3:  Execute sale deed — TDS 1% apply        │
+│  Month 4:  Register property in HUF name            │
+│  Month 5:  Update Schedule AL in HUF ITR            │
+│  ...                                              │
+│  [Download PDF] [Share with CA] [Save scenario]     │
+└──────────────────────────────────────────────────┘
+</code></pre>
+<p><strong>Other scenarios the Time Machine handles:</strong></p>
+<ul>
+<li>ESOP exercise timing (this FY vs next FY)</li>
+<li>Relocation to Singapore/Dubai (NRI transition)</li>
+<li>Gifting ₹50L to spouse vs HUF vs trust</li>
+<li>Selling property with Section 54 / 54F exemption planning</li>
+<li>LRS remittance for US stock purchase</li>
+<li>AIF commitment timing vs surcharge slab</li>
+</ul>
+<p><strong>Developer notes:</strong></p>
+<ul>
+<li>Module name: <code>TimeMachineSimulator</code> / <code>ScenarioEngine</code></li>
+<li>Requires: Tax rule engine, entity graph, ARCHITECT AI for natural language input</li>
+<li>Output: Structured scenario JSON + human-readable report + calendar (iCal export)</li>
+<li>Every number must cite source rule (IT Act section, state stamp duty schedule)</li>
+</ul>
+<hr>
+<h3>Feature 6: The &quot;If I&#39;m Gone&quot; Vault</h3>
+<p><strong>The problem in one sentence:</strong><br>If something happens to you tomorrow, your family doesn&#39;t know where 20+ accounts, unlisted shares, and locker keys are.</p>
+<p><strong>What CAPSTONE does:</strong></p>
+<ol>
+<li><strong>Checks nominees</strong> across every account — flags where nominee is missing or outdated</li>
+<li><strong>Creates a secure playbook</strong> — step-by-step guide for spouse/kids</li>
+<li><strong>Stores critical documents</strong> — wills, property papers, insurance, locker inventory</li>
+<li><strong>Emergency trigger</strong> — if you&#39;re unreachable for X days, designated person gets access</li>
+</ol>
+<p><strong>What the playbook contains:</strong></p>
+<pre><code>┌──────────────────────────────────────────────────┐
+│  IF I&#39;M GONE — Emergency Playbook                 │
+│  Prepared for: Priya (spouse)                     │
+│  Last updated: June 15, 2026                      │
+├──────────────────────────────────────────────────┤
+│  STEP 1: Call these people (in order)             │
+│    1. Rajesh CA — +91-98xxx — has all tax records │
+│    2. HDFC RM Vikram — +91-99xxx — bank accounts  │
+│    3. Lawyer Mehta — +91-97xxx — will &amp; trust       │
+│                                                   │
+│  STEP 2: Access these accounts                    │
+│    • HDFC Savings ***4521 — nominee: Priya ✅      │
+│    • Zerodha — nominee: MISSING ⚠️ FIX NOW        │
+│    • HUF demat — Karta succession: see trust deed │
+│                                                   │
+│  STEP 3: Physical assets                            │
+│    • Locker #442, SBI Bandra — key in home safe     │
+│    • Property papers — digital copy in vault        │
+│    • Unlisted shares — certificates in locker       │
+│                                                   │
+│  STEP 4: Total wealth summary                     │
+│    Family net worth: ₹42.3 Cr (as of June 2026)     │
+│    [Full breakdown attached — offline PDF]          │
+└──────────────────────────────────────────────────┘
+</code></pre>
+<p><strong>Nominee audit example:</strong></p>
+<table>
+<thead>
+<tr>
+<th>Account</th>
+<th>Institution</th>
+<th>Nominee</th>
+<th>Status</th>
+</tr>
+</thead>
+<tbody><tr>
+<td>Savings</td>
+<td>HDFC</td>
+<td>Spouse</td>
+<td>✅ Valid</td>
+</tr>
+<tr>
+<td>Demat</td>
+<td>Zerodha</td>
+<td>None</td>
+<td>🔴 Missing</td>
+</tr>
+<tr>
+<td>MF Folio</td>
+<td>ICICI</td>
+<td>Father (deceased)</td>
+<td>🔴 Outdated</td>
+</tr>
+<tr>
+<td>PMS</td>
+<td>Marcellus</td>
+<td>Spouse</td>
+<td>✅ Valid</td>
+</tr>
+<tr>
+<td>Insurance</td>
+<td>LIC</td>
+<td>Spouse</td>
+<td>✅ Valid</td>
+</tr>
+</tbody></table>
+<p><strong>Developer notes:</strong></p>
+<ul>
+<li>Module name: <code>IfImGoneVault</code> / <code>SuccessionPlaybook</code></li>
+<li>Requires: Nominee data from AA/broker APIs where available; manual entry for rest</li>
+<li>Storage: Encrypted document vault, offline PDF generation, optional dead man&#39;s switch (inactivity trigger)</li>
+<li>Legal: Not a will substitute — complementary to legal estate planning</li>
+<li>Access: Role-based; successor role activated only by configured trigger (inactivity / manual / legal event)</li>
+</ul>
+<hr>
+<h2>6. Full Product Modules</h2>
+<p>Beyond the six core features, CAPSTONE includes supporting modules.</p>
+<h3>Module A: ARCHITECT (AI Copilot)</h3>
+<ul>
+<li>Natural language queries about your wealth</li>
+<li>Every answer cites IT Act / SEBI / RBI source</li>
+<li>Ends in Action Cards, not paragraphs</li>
+<li>Voice + WhatsApp interface for daily use</li>
+</ul>
+<h3>Module B: Advance Tax Autopilot</h3>
+<ul>
+<li>Quarterly tax liability projection</li>
+<li>Surcharge slab warnings</li>
+<li>234B/234C interest calculator</li>
+<li>Auto-adjust after harvest events</li>
+</ul>
+<h3>Module C: Compliance Radar</h3>
+<ul>
+<li>LRS limit tracker (USD 250K/year)</li>
+<li>GIFT City position monitor</li>
+<li>Schedule FA / AL completeness</li>
+<li>Budget impact simulator</li>
+</ul>
+<h3>Module D: Advisor Mesh</h3>
+<ul>
+<li>Permissioned access for CA, RM, spouse, successor</li>
+<li>Audit trail on every view and export</li>
+<li>Scoped visibility (RM sees only their slice)</li>
+</ul>
+<h3>Module E: HNI Intelligence Feed</h3>
+<ul>
+<li>Portfolio-specific alerts (not generic market news)</li>
+<li>&quot;Reliance is 8.2% of your wealth — earnings in 4 days&quot;</li>
+<li>&quot;Your PMS underperformed Nifty by 4.1% after fees&quot;</li>
+</ul>
+<hr>
+<h2>7. How the App Feels to Use</h2>
+<h3>Daily glance (30 seconds)</h3>
+<pre><code>┌──────────────────────────────────────────┐
+│  FAMILY NET WORTH            ₹42.3 Cr   │
+│  ▲ ₹2.1L today    Tax saved YTD: ₹8.7L  │
+├──────────────────────────────────────────┤
+│  🔴 2 Action Cards need attention        │
+│  🟡 Advance tax due in 18 days: ₹4.2L   │
+│  🟢 Tax Firewall clean — 6h ago          │
+├──────────────────────────────────────────┤
+│  Held-away: 61% · Entities: 4          │
+│  Nominee gaps: 2 accounts ⚠️              │
+└──────────────────────────────────────────┘
+</code></pre>
+<h3>Weekly session (10 minutes)</h3>
+<ol>
+<li>Review God Mode dashboard — any drift in allocation?</li>
+<li>Check Tax Firewall — any new AIS mismatches?</li>
+<li>Review harvest Action Cards — execute if beneficial</li>
+<li>Ask ARCHITECT any pending decision</li>
+</ol>
+<h3>Monthly session (30 minutes)</h3>
+<ol>
+<li>Manager Honesty Check scorecard</li>
+<li>Advance tax payment</li>
+<li>Time Machine for any upcoming big decision</li>
+<li>Update If I&#39;m Gone vault if anything changed</li>
+</ol>
+<h3>Engagement target</h3>
+<table>
+<thead>
+<tr>
+<th>User type</th>
+<th>Sessions/week</th>
+</tr>
+</thead>
+<tbody><tr>
+<td>Normal net worth app</td>
+<td>1–2</td>
+</tr>
+<tr>
+<td><strong>CAPSTONE HNI</strong></td>
+<td><strong>4–6</strong></td>
+</tr>
+</tbody></table>
+<hr>
+<h2>8. System Architecture (For Developers)</h2>
+<h3>High-level architecture</h3>
+<pre><code>┌─────────────────────────────────────────────────────────────┐
+│                     CLIENT APPS                              │
+│   iOS · Android · Web · WhatsApp Bot · API (Advisor Mesh)   │
+└─────────────────────────┬───────────────────────────────────┘
+                          │
+┌─────────────────────────▼───────────────────────────────────┐
+│                     API GATEWAY                              │
+│   Auth (OAuth2/OIDC) · Rate limit · Audit log               │
+└─────────────────────────┬───────────────────────────────────┘
+                          │
+        ┌─────────────────┼─────────────────┐
+        │                 │                 │
+┌───────▼──────┐  ┌───────▼──────┐  ┌───────▼──────┐
+│  WEALTH      │  │  TAX         │  │  AI          │
+│  SERVICE     │  │  SERVICE     │  │  SERVICE     │
+│              │  │              │  │              │
+│ Entity Graph │  │ Firewall     │  │ ARCHITECT    │
+│ AA Ingestion │  │ Harvester    │  │ Scenario NLP │
+│ Held-Away    │  │ Advance Tax  │  │ Citations    │
+│ Real Assets  │  │ AIS Diff     │  │ Action Cards │
+└───────┬──────┘  └───────┬──────┘  └───────┬──────┘
+        │                 │                 │
+┌───────▼─────────────────▼─────────────────▼───────┐
+│                   DATA LAYER                       │
+│  PostgreSQL (entities, users, permissions)         │
+│  TimescaleDB (portfolio snapshots, prices)           │
+│  Redis (cache, sessions, job queues)               │
+│  S3 (documents, offline PDFs, encrypted vault)       │
+│  Vector DB (legal citation graph for ARCHITECT)      │
+└───────────────────────┬───────────────────────────┘
+                        │
+┌───────────────────────▼───────────────────────────┐
+│               INTEGRATION LAYER                    │
+│  Account Aggregator (TSP) · IT Portal · Brokers   │
+│  AMFI/SEBI data · Market data · Email parser       │
+└───────────────────────────────────────────────────┘
+</code></pre>
+<h3>Recommended tech stack</h3>
+<table>
+<thead>
+<tr>
+<th>Layer</th>
+<th>Technology</th>
+<th>Why</th>
+</tr>
+</thead>
+<tbody><tr>
+<td>Mobile</td>
+<td>React Native or Flutter</td>
+<td>Single codebase, India-first</td>
+</tr>
+<tr>
+<td>Web</td>
+<td>Next.js</td>
+<td>SSR, fast dashboards</td>
+</tr>
+<tr>
+<td>API</td>
+<td>Node.js (NestJS) or Go</td>
+<td>Type safety, performance</td>
+</tr>
+<tr>
+<td>Database</td>
+<td>PostgreSQL + TimescaleDB</td>
+<td>Relational + time-series for portfolios</td>
+</tr>
+<tr>
+<td>Cache/Queue</td>
+<td>Redis + BullMQ</td>
+<td>Job scheduling for nightly AIS scan</td>
+</tr>
+<tr>
+<td>AI</td>
+<td>Claude/GPT + custom RAG</td>
+<td>ARCHITECT with citation graph</td>
+</tr>
+<tr>
+<td>Vector DB</td>
+<td>Pinecone or pgvector</td>
+<td>Legal knowledge retrieval</td>
+</tr>
+<tr>
+<td>Infra</td>
+<td>AWS Mumbai (ap-south-1)</td>
+<td>Data residency in India</td>
+</tr>
+<tr>
+<td>Secrets</td>
+<td>AWS KMS + HashiCorp Vault</td>
+<td>Financial data encryption</td>
+</tr>
+</tbody></table>
+<h3>Core services (microservice boundaries)</h3>
+<table>
+<thead>
+<tr>
+<th>Service</th>
+<th>Responsibility</th>
+<th>Key APIs</th>
+</tr>
+</thead>
+<tbody><tr>
+<td><code>wealth-service</code></td>
+<td>Entity graph, net worth, holdings</td>
+<td><code>GET /family/networth</code>, <code>GET /entities/{id}/holdings</code></td>
+</tr>
+<tr>
+<td><code>tax-service</code></td>
+<td>Firewall, harvester, advance tax</td>
+<td><code>GET /tax/firewall/status</code>, <code>POST /tax/harvest/scan</code></td>
+</tr>
+<tr>
+<td><code>ingestion-service</code></td>
+<td>AA, CAS, email, document parse</td>
+<td><code>POST /ingest/aa/consent</code>, <code>POST /ingest/cas</code></td>
+</tr>
+<tr>
+<td><code>ai-service</code></td>
+<td>ARCHITECT, Time Machine NLP</td>
+<td><code>POST /ai/ask</code>, <code>POST /ai/scenario</code></td>
+</tr>
+<tr>
+<td><code>vault-service</code></td>
+<td>If I&#39;m Gone, documents, nominees</td>
+<td><code>GET /vault/playbook</code>, <code>GET /vault/nominee-audit</code></td>
+</tr>
+<tr>
+<td><code>advisor-service</code></td>
+<td>Permissions, audit, exports</td>
+<td><code>POST /advisor/invite</code>, <code>GET /audit/log</code></td>
+</tr>
+<tr>
+<td><code>notification-service</code></td>
+<td>Push, email, WhatsApp</td>
+<td><code>POST /notify/action-card</code></td>
+</tr>
+</tbody></table>
+<h3>Background jobs (scheduled)</h3>
+<table>
+<thead>
+<tr>
+<th>Job</th>
+<th>Frequency</th>
+<th>Purpose</th>
+</tr>
+</thead>
+<tbody><tr>
+<td><code>aa-sync</code></td>
+<td>Every 6 hours</td>
+<td>Refresh AA data for all consented accounts</td>
+</tr>
+<tr>
+<td><code>ais-reconcile</code></td>
+<td>Nightly</td>
+<td>Tax-Notice Firewall scan</td>
+</tr>
+<tr>
+<td><code>harvest-scan</code></td>
+<td>Daily (market days)</td>
+<td>Tax harvest opportunity detection</td>
+</tr>
+<tr>
+<td><code>price-update</code></td>
+<td>Every 15 min (market hours)</td>
+<td>Mark-to-market for portfolios</td>
+</tr>
+<tr>
+<td><code>nominee-audit</code></td>
+<td>Weekly</td>
+<td>Check nominee status across accounts</td>
+</tr>
+<tr>
+<td><code>advance-tax-reminder</code></td>
+<td>7 days before due date</td>
+<td>Quarterly advance tax alerts</td>
+</tr>
+<tr>
+<td><code>consent-expiry</code></td>
+<td>Daily</td>
+<td>AA consent renewal reminders</td>
+</tr>
+</tbody></table>
+<hr>
+<h2>9. Data Sources &amp; Integrations</h2>
+<h3>Tier 1: Account Aggregator (RBI-regulated)</h3>
+<p><strong>What it covers:</strong> Bank savings, FD, RD, MF folios, demat equity, ETFs, NPS, insurance policies.</p>
+<p><strong>How to integrate:</strong> Via TSP (Technology Service Provider) — no NBFC licence needed for startup.</p>
+<p><strong>Limitations (critical for developers):</strong></p>
+<table>
+<thead>
+<tr>
+<th>Gap</th>
+<th>Workaround</th>
+</tr>
+</thead>
+<tbody><tr>
+<td>No joint accounts</td>
+<td>Manual link + spouse consent</td>
+</tr>
+<tr>
+<td>No NRE/NRO</td>
+<td>Manual statement upload</td>
+</tr>
+<tr>
+<td>No HUF/trust/company accounts</td>
+<td>Document upload + CA feed</td>
+</tr>
+<tr>
+<td>No PMS/AIF</td>
+<td>CAS email parser</td>
+</tr>
+<tr>
+<td>No real estate</td>
+<td>Deed upload</td>
+</tr>
+<tr>
+<td>Consent expires</td>
+<td>Recurring consent UX + reminders</td>
+</tr>
+</tbody></table>
+<h3>Tier 2: Off-AA ingestion</h3>
+<table>
+<thead>
+<tr>
+<th>Source</th>
+<th>Method</th>
+<th>Data</th>
+</tr>
+</thead>
+<tbody><tr>
+<td>Zerodha/Groww/Upstox</td>
+<td>CAS PDF + API where available</td>
+<td>Lot-level holdings, P&amp;L</td>
+</tr>
+<tr>
+<td>PMS/AIF</td>
+<td>Quarterly CAS email + manual</td>
+<td>NAV, commitments, distributions</td>
+</tr>
+<tr>
+<td>Real estate</td>
+<td>Sale deed upload + AI extract</td>
+<td>Owner, value, location</td>
+</tr>
+<tr>
+<td>Unlisted/ESOP</td>
+<td>Cap table upload</td>
+<td>Shares, vesting schedule</td>
+</tr>
+<tr>
+<td>Global brokers</td>
+<td>Statement upload</td>
+<td>USD holdings</td>
+</tr>
+<tr>
+<td>IT Portal</td>
+<td>User consent + API/scrape</td>
+<td>AIS, 26AS, TIS</td>
+</tr>
+</tbody></table>
+<h3>Tier 3: Market &amp; reference data</h3>
+<table>
+<thead>
+<tr>
+<th>Data</th>
+<th>Source</th>
+</tr>
+</thead>
+<tbody><tr>
+<td>Stock/MF prices</td>
+<td>NSE/BSE feed, AMFI</td>
+</tr>
+<tr>
+<td>Benchmarks</td>
+<td>Nifty 50, Nifty 500, custom</td>
+</tr>
+<tr>
+<td>Tax rules</td>
+<td>Internal rules engine (versioned per FY)</td>
+</tr>
+<tr>
+<td>Legal citations</td>
+<td>IT Act, CBDT circulars (vector indexed)</td>
+</tr>
+</tbody></table>
+<hr>
+<h2>10. Entity &amp; Data Model</h2>
+<h3>Core entities (simplified ER)</h3>
+<pre><code>Family
+  └── Person (individual, has PAN)
+  └── LegalEntity (HUF, Trust, PvtLtd)
+        └── has PAN / registration
+        └── has members (Person[])
+        └── owns Asset[]
+
+Asset
+  └── type: equity | mf | fd | pms | aif | re | gold | insurance | loan | other
+  └── custodian: institution name
+  └── held_by: Person | LegalEntity
+  └── lots: Lot[] (for tax purposes)
+  └── nominee: Person | null
+  └── source: aa | cas | manual | document_ai
+
+Lot
+  └── quantity, buy_date, buy_price, asset_ref
+  └── used for: STCG/LTCG calculation, harvest pairing
+
+TaxLedger
+  └── fy: 2025-26
+  └── realized_gains[], unrealized_gains[]
+  └── ais_entries[], mismatches[]
+  └── advance_tax_payments[]
+
+ActionCard
+  └── type: harvest | firewall_fix | nominee_fix | manager_alert
+  └── status: pending | done | dismissed
+  └── savings_inr: number
+  └── deadline: date
+  └── instructions: text
+
+Scenario
+  └── query: natural language
+  └── assumptions: json
+  └── outcomes: [{ path, tax, timeline }]
+  └── calendar: [{ month, action }]
+</code></pre>
+<h3>Entity graph example (JSON)</h3>
+<pre><code class="language-json">{
+  &quot;family_id&quot;: &quot;fam_001&quot;,
+  &quot;total_net_worth_inr&quot;: 4230000000,
+  &quot;entities&quot;: [
+    {
+      &quot;id&quot;: &quot;person_001&quot;,
+      &quot;type&quot;: &quot;individual&quot;,
+      &quot;name&quot;: &quot;Rahul&quot;,
+      &quot;pan&quot;: &quot;ABCPR1234A&quot;,
+      &quot;net_worth_inr&quot;: 1210000000
+    },
+    {
+      &quot;id&quot;: &quot;huf_001&quot;,
+      &quot;type&quot;: &quot;huf&quot;,
+      &quot;name&quot;: &quot;Rahul HUF&quot;,
+      &quot;pan&quot;: &quot;ABCPR5678H&quot;,
+      &quot;karta&quot;: &quot;person_001&quot;,
+      &quot;net_worth_inr&quot;: 1840000000
+    },
+    {
+      &quot;id&quot;: &quot;trust_001&quot;,
+      &quot;type&quot;: &quot;private_trust&quot;,
+      &quot;name&quot;: &quot;Rahul Family Trust&quot;,
+      &quot;net_worth_inr&quot;: 510000000
+    }
+  ],
+  &quot;held_away_pct&quot;: 58,
+  &quot;last_sync&quot;: &quot;2026-06-30T04:00:00Z&quot;
+}
+</code></pre>
+<hr>
+<h2>11. AI Layer — ARCHITECT</h2>
+<h3>What ARCHITECT is</h3>
+<p>ARCHITECT is CAPSTONE&#39;s AI copilot. It is <strong>not</strong> a generic ChatGPT wrapper. It is trained on:</p>
+<ol>
+<li><strong>Your</strong> entity graph and portfolio</li>
+<li><strong>India-specific</strong> tax and regulatory rules (citation-backed)</li>
+<li><strong>Your</strong> goals, life events, and family structure</li>
+</ol>
+<h3>ARCHITECT rules (non-negotiable)</h3>
+<ol>
+<li>Every tax claim must cite IT Act section or CBDT circular</li>
+<li>Never recommend a specific product for commission</li>
+<li>Always end with an Action Card or explicit &quot;consult your CA&quot;</li>
+<li>Never execute trades or move money</li>
+<li>Log every conversation for audit</li>
+</ol>
+<h3>RAG architecture</h3>
+<pre><code>User question
+    ↓
+Intent classifier (tax / portfolio / scenario / compliance)
+    ↓
+Retrieve: user portfolio context + relevant legal corpus
+    ↓
+LLM generates answer with inline citations
+    ↓
+Action Card generator (if applicable)
+    ↓
+Response to user
+</code></pre>
+<h3>Example prompts ARCHITECT handles</h3>
+<table>
+<thead>
+<tr>
+<th>User says</th>
+<th>ARCHITECT does</th>
+</tr>
+</thead>
+<tbody><tr>
+<td>&quot;What&#39;s my real exposure to IT stocks?&quot;</td>
+<td>Sums across all entities and brokers</td>
+</tr>
+<tr>
+<td>&quot;Can I gift ₹50L to my HUF?&quot;</td>
+<td>Checks clubbing rules, gift tax, cites Section 64</td>
+</tr>
+<tr>
+<td>&quot;I&#39;m moving to Singapore&quot;</td>
+<td>NRI transition checklist for YOUR portfolio</td>
+</tr>
+<tr>
+<td>&quot;Do I need to pay advance tax this quarter?&quot;</td>
+<td>Calculates from realized + projected gains</td>
+</tr>
+</tbody></table>
+<hr>
+<h2>12. Security, Privacy &amp; Compliance</h2>
+<h3>Data security</h3>
+<table>
+<thead>
+<tr>
+<th>Measure</th>
+<th>Implementation</th>
+</tr>
+</thead>
+<tbody><tr>
+<td>Encryption at rest</td>
+<td>AES-256 (AWS KMS)</td>
+</tr>
+<tr>
+<td>Encryption in transit</td>
+<td>TLS 1.3</td>
+</tr>
+<tr>
+<td>PII isolation</td>
+<td>Separate schema per family</td>
+</tr>
+<tr>
+<td>Document vault</td>
+<td>Client-side encryption option for wills</td>
+</tr>
+<tr>
+<td>Access audit</td>
+<td>Every read/write logged with timestamp + actor</td>
+</tr>
+<tr>
+<td>No human access</td>
+<td>Policy: engineers never view raw financial data</td>
+</tr>
+</tbody></table>
+<h3>Regulatory posture</h3>
+<table>
+<thead>
+<tr>
+<th>Requirement</th>
+<th>Approach</th>
+</tr>
+</thead>
+<tbody><tr>
+<td>SEBI investment advice</td>
+<td>Register as RIA (fee-only) or partner with existing RIA</td>
+</tr>
+<tr>
+<td>Account Aggregator</td>
+<td>FIU via TSP route</td>
+</tr>
+<tr>
+<td>Income Tax data</td>
+<td>User consent; read-only; never store IT portal password in plain text</td>
+</tr>
+<tr>
+<td>Data residency</td>
+<td>All data in India (AWS ap-south-1)</td>
+</tr>
+<tr>
+<td>No execution</td>
+<td>CAPSTONE advises; user executes via own broker/bank</td>
+</tr>
+</tbody></table>
+<h3>What CAPSTONE never does</h3>
+<ul>
+<li>Holds customer money</li>
+<li>Executes trades</li>
+<li>Sells financial products for commission</li>
+<li>Shares data with banks or RMs without explicit consent</li>
+<li>Provides legal advice (complements lawyer; does not replace)</li>
+</ul>
+<hr>
+<h2>13. Business Model</h2>
+<h3>Pricing</h3>
+<table>
+<thead>
+<tr>
+<th>Plan</th>
+<th>Price/year</th>
+<th>Includes</th>
+</tr>
+</thead>
+<tbody><tr>
+<td><strong>CAPSTONE Individual</strong></td>
+<td>₹1.5L</td>
+<td>1 person, 1 entity, core 6 features</td>
+</tr>
+<tr>
+<td><strong>CAPSTONE Family</strong></td>
+<td>₹3.5L</td>
+<td>Up to 4 members, 3 entities, Advisor Mesh</td>
+</tr>
+<tr>
+<td><strong>CAPSTONE Enterprise</strong></td>
+<td>₹8L+</td>
+<td>Unlimited entities, MFO white-label, API access</td>
+</tr>
+</tbody></table>
+<h3>Revenue principles</h3>
+<ul>
+<li><strong>Fee-only</strong> — no AUM commission, no product distribution</li>
+<li><strong>Value-aligned</strong> — optional 10% of documented tax saved (performance component)</li>
+<li><strong>Advisor seats</strong> — ₹25K/seat/year for CA access</li>
+</ul>
+<h3>Unit economics (target)</h3>
+<table>
+<thead>
+<tr>
+<th>Metric</th>
+<th>Target</th>
+</tr>
+</thead>
+<tbody><tr>
+<td>ARPU</td>
+<td>₹3.5L/year</td>
+</tr>
+<tr>
+<td>CAC</td>
+<td>₹50K (via CA channel)</td>
+</tr>
+<tr>
+<td>LTV (5 year)</td>
+<td>₹15L+</td>
+</tr>
+<tr>
+<td>Gross margin</td>
+<td>75%+ (software, not people-heavy)</td>
+</tr>
+<tr>
+<td>Payback</td>
+<td>Customer saves ₹3L+ tax in year 1 → easy ROI proof</td>
+</tr>
+</tbody></table>
+<hr>
+<h2>14. Go-to-Market &amp; Roadmap</h2>
+<h3>Phase 1 (Months 0–12): Wedge</h3>
+<p><strong>Target:</strong> Tech founders, active traders, ESOP holders with ₹5Cr+</p>
+<p><strong>Ship:</strong></p>
+<ul>
+<li>God Mode Dashboard (individual + 1 entity)</li>
+<li>Tax-Notice Firewall</li>
+<li>Free Money Button (harvest)</li>
+<li>ARCHITECT v1</li>
+</ul>
+<p><strong>Channel:</strong> CA partnerships, founder communities, Twitter/LinkedIn</p>
+<h3>Phase 2 (Months 12–24): Depth</h3>
+<p><strong>Ship:</strong></p>
+<ul>
+<li>Full entity graph (HUF, trust)</li>
+<li>Honesty Check</li>
+<li>Time Machine</li>
+<li>If I&#39;m Gone Vault</li>
+<li>Advisor Mesh</li>
+</ul>
+<p><strong>Channel:</strong> Family office referrals, private bank neutral partnerships</p>
+<h3>Phase 3 (Months 24–36): Scale</h3>
+<p><strong>Ship:</strong></p>
+<ul>
+<li>NRI/global Indian support</li>
+<li>MFO white-label</li>
+<li>API for external advisors</li>
+</ul>
+<p><strong>Channel:</strong> B2B2C via CA firms and wealth platforms</p>
+<hr>
+<h2>15. MVP Build Plan (90 Days)</h2>
+<h3>Sprint 1 (Days 1–30): Foundation</h3>
+<ul>
+<li><input disabled="" type="checkbox"> User auth, family setup, entity creation</li>
+<li><input disabled="" type="checkbox"> AA integration via TSP (bank + MF + demat)</li>
+<li><input disabled="" type="checkbox"> God Mode Dashboard v1 (single person, AA data only)</li>
+<li><input disabled="" type="checkbox"> Basic net worth calculation</li>
+</ul>
+<h3>Sprint 2 (Days 31–60): Tax Core</h3>
+<ul>
+<li><input disabled="" type="checkbox"> CAS import (Zerodha, Groww) for lot-level data</li>
+<li><input disabled="" type="checkbox"> Tax ledger (STCG/LTCG calculation)</li>
+<li><input disabled="" type="checkbox"> Tax-Notice Firewall v1 (manual AIS upload → diff)</li>
+<li><input disabled="" type="checkbox"> Free Money Button v1 (harvest scan, Action Cards)</li>
+</ul>
+<h3>Sprint 3 (Days 61–90): AI + Polish</h3>
+<ul>
+<li><input disabled="" type="checkbox"> ARCHITECT v1 (portfolio-aware Q&amp;A)</li>
+<li><input disabled="" type="checkbox"> Advance tax projection</li>
+<li><input disabled="" type="checkbox"> Nominee audit (manual entry)</li>
+<li><input disabled="" type="checkbox"> Mobile app beta (iOS + Android)</li>
+<li><input disabled="" type="checkbox"> 10 pilot families onboarded</li>
+</ul>
+<h3>Explicitly NOT in MVP</h3>
+<ul>
+<li>Trade execution</li>
+<li>Product distribution / MF buying</li>
+<li>Lending</li>
+<li>Full IT portal API (manual AIS upload OK for v1)</li>
+<li>HUF/trust automation (manual entry OK for v1)</li>
+</ul>
+<hr>
+<h2>16. Success Metrics</h2>
+<table>
+<thead>
+<tr>
+<th>Metric</th>
+<th>Month 6</th>
+<th>Month 12</th>
+<th>Month 36</th>
+</tr>
+</thead>
+<tbody><tr>
+<td>Families onboarded</td>
+<td>50</td>
+<td>500</td>
+<td>8,000</td>
+</tr>
+<tr>
+<td>Avg net worth tracked</td>
+<td>₹10 Cr</td>
+<td>₹12 Cr</td>
+<td>₹18 Cr</td>
+</tr>
+<tr>
+<td>Weekly active rate</td>
+<td>45%</td>
+<td>55%</td>
+<td>70%</td>
+</tr>
+<tr>
+<td>Tax documented saved (cumulative)</td>
+<td>₹5 Cr</td>
+<td>₹50 Cr</td>
+<td>₹800 Cr</td>
+</tr>
+<tr>
+<td>Firewall mismatches caught</td>
+<td>200</td>
+<td>2,000</td>
+<td>30,000</td>
+</tr>
+<tr>
+<td>NPS</td>
+<td>60</td>
+<td>65</td>
+<td>75</td>
+</tr>
+<tr>
+<td>ARPU</td>
+<td>₹2L</td>
+<td>₹2.5L</td>
+<td>₹4L</td>
+</tr>
+</tbody></table>
+<hr>
+<h2>17. Risks &amp; How We Handle Them</h2>
+<table>
+<thead>
+<tr>
+<th>Risk</th>
+<th>Likelihood</th>
+<th>Impact</th>
+<th>Mitigation</th>
+</tr>
+</thead>
+<tbody><tr>
+<td>AA doesn&#39;t cover PMS/HUF</td>
+<td>High</td>
+<td>High</td>
+<td>Document AI + CAS parser from Day 1</td>
+</tr>
+<tr>
+<td>SEBI advice regulations</td>
+<td>Medium</td>
+<td>High</td>
+<td>Fee-only RIA registration</td>
+</tr>
+<tr>
+<td>Banks build similar</td>
+<td>Low</td>
+<td>Medium</td>
+<td>Banks can&#39;t show competitor held-away (structural conflict)</td>
+</tr>
+<tr>
+<td>Data inaccuracy</td>
+<td>Medium</td>
+<td>High</td>
+<td>Confidence scores; human verify for off-AA</td>
+</tr>
+<tr>
+<td>User trusts AI too much</td>
+<td>Medium</td>
+<td>High</td>
+<td>Always cite sources; &quot;consult CA&quot; for edge cases</td>
+</tr>
+<tr>
+<td>IT portal API changes</td>
+<td>Medium</td>
+<td>Medium</td>
+<td>Manual AIS upload fallback</td>
+</tr>
+<tr>
+<td>Competitor copies</td>
+<td>Medium</td>
+<td>Medium</td>
+<td>Entity graph + tax engine depth = 18mo moat</td>
+</tr>
+</tbody></table>
+<hr>
+<h2>18. Glossary</h2>
+<table>
+<thead>
+<tr>
+<th>Term</th>
+<th>Meaning</th>
+</tr>
+</thead>
+<tbody><tr>
+<td><strong>HNI</strong></td>
+<td>High Net-worth Individual — typically ₹5 Cr+ investable wealth</td>
+</tr>
+<tr>
+<td><strong>UHNW</strong></td>
+<td>Ultra High Net-worth — typically ₹50 Cr+ or $30M+</td>
+</tr>
+<tr>
+<td><strong>AA</strong></td>
+<td>Account Aggregator — RBI-regulated data sharing framework</td>
+</tr>
+<tr>
+<td><strong>FIP</strong></td>
+<td>Financial Information Provider — bank/broker that shares data</td>
+</tr>
+<tr>
+<td><strong>FIU</strong></td>
+<td>Financial Information User — app that receives data (CAPSTONE)</td>
+</tr>
+<tr>
+<td><strong>TSP</strong></td>
+<td>Technology Service Provider — integrates AA without own licence</td>
+</tr>
+<tr>
+<td><strong>AIS</strong></td>
+<td>Annual Information Statement — government&#39;s record of your income</td>
+</tr>
+<tr>
+<td><strong>26AS</strong></td>
+<td>Tax credit statement — all TDS deducted on your PAN</td>
+</tr>
+<tr>
+<td><strong>TIS</strong></td>
+<td>Taxpayer Information Summary — summary from IT portal</td>
+</tr>
+<tr>
+<td><strong>HUF</strong></td>
+<td>Hindu Undivided Family — tax entity for Hindu families</td>
+</tr>
+<tr>
+<td><strong>PMS</strong></td>
+<td>Portfolio Management Service — min ₹50L, professional stock management</td>
+</tr>
+<tr>
+<td><strong>AIF</strong></td>
+<td>Alternative Investment Fund — min ₹1Cr, PE/VC/credit funds</td>
+</tr>
+<tr>
+<td><strong>LRS</strong></td>
+<td>Liberalised Remittance Scheme — $250K/year overseas remittance limit</td>
+</tr>
+<tr>
+<td><strong>STCG</strong></td>
+<td>Short Term Capital Gains — held &lt; 12 months (equity)</td>
+</tr>
+<tr>
+<td><strong>LTCG</strong></td>
+<td>Long Term Capital Gains — held &gt; 12 months (equity)</td>
+</tr>
+<tr>
+<td><strong>Harvesting</strong></td>
+<td>Selling losers to offset gains and reduce tax</td>
+</tr>
+<tr>
+<td><strong>Held-away</strong></td>
+<td>Assets not managed by your primary advisor/bank</td>
+</tr>
+<tr>
+<td><strong>RIA</strong></td>
+<td>Registered Investment Adviser — SEBI-regulated fee-only advisor</td>
+</tr>
+<tr>
+<td><strong>CAS</strong></td>
+<td>Consolidated Account Statement — all MF holdings in one PDF</td>
+</tr>
+<tr>
+<td><strong>Schedule FA</strong></td>
+<td>Foreign Assets schedule in ITR</td>
+</tr>
+<tr>
+<td><strong>Schedule AL</strong></td>
+<td>Assets &amp; Liabilities schedule (income &gt; ₹1 Cr)</td>
+</tr>
+<tr>
+<td><strong>RM</strong></td>
+<td>Relationship Manager — bank wealth advisor</td>
+</tr>
+<tr>
+<td><strong>ARCHITECT</strong></td>
+<td>CAPSTONE&#39;s AI copilot name</td>
+</tr>
+</tbody></table>
+<hr>
+<h2>19. Appendix: Competitive Landscape</h2>
+<table>
+<thead>
+<tr>
+<th>Company</th>
+<th>Category</th>
+<th>Strength</th>
+<th>Gap vs CAPSTONE</th>
+</tr>
+</thead>
+<tbody><tr>
+<td>FOLO</td>
+<td>Net worth app</td>
+<td>AA aggregation, 500+ sources</td>
+<td>No tax engine, no entities</td>
+</tr>
+<tr>
+<td>Vault</td>
+<td>Net worth app</td>
+<td>AI categorization</td>
+<td>No firewall, no harvest</td>
+</tr>
+<tr>
+<td>WealthNest</td>
+<td>Family office app</td>
+<td>4I framework (investment, insurance, tax, inheritance)</td>
+<td>Tax/inheritance &quot;coming soon&quot;</td>
+</tr>
+<tr>
+<td>NetWorthOS</td>
+<td>HNI platform</td>
+<td>Genie AI, If I&#39;m Gone</td>
+<td>Early stage; no AIS firewall</td>
+</tr>
+<tr>
+<td>Famli</td>
+<td>Family wealth</td>
+<td>SEBI RIA, ISO 27001</td>
+<td>No continuous tax simulation</td>
+</tr>
+<tr>
+<td>Equirus</td>
+<td>Wealth firm tech</td>
+<td>Research integration</td>
+<td>Captive to Equirus AUM</td>
+</tr>
+<tr>
+<td>360 ONE</td>
+<td>Private bank tech</td>
+<td>RM workbench, held-away</td>
+<td>Captive to 360 ONE clients</td>
+</tr>
+<tr>
+<td>EZTax</td>
+<td>Tax filing</td>
+<td>HNI ITR, 42 countries</td>
+<td>Seasonal; no live portfolio</td>
+</tr>
+<tr>
+<td>VittSphere</td>
+<td>AI personal CFO</td>
+<td>Capital gains tracker</td>
+<td>Mass affluent; not entity graph</td>
+</tr>
+<tr>
+<td>Saltman</td>
+<td>Tax AI</td>
+<td>Citation-backed Q&amp;A</td>
+<td>No portfolio integration</td>
+</tr>
+<tr>
+<td>Asset Vantage</td>
+<td>Family office B2B</td>
+<td>Entity reporting, GL</td>
+<td>Enterprise ₹50L+ ACV</td>
+</tr>
+<tr>
+<td>Addepar</td>
+<td>Global UHNW</td>
+<td>Entity look-through, 500+ feeds</td>
+<td>No India tax; enterprise only</td>
+</tr>
+</tbody></table>
+<hr>
+<h2>Document Control</h2>
+<table>
+<thead>
+<tr>
+<th>Field</th>
+<th>Value</th>
+</tr>
+</thead>
+<tbody><tr>
+<td>Document title</td>
+<td>CAPSTONE Project Bible</td>
+</tr>
+<tr>
+<td>Version</td>
+<td>1.0</td>
+</tr>
+<tr>
+<td>Author</td>
+<td>CAPSTONE Founding Team</td>
+</tr>
+<tr>
+<td>Created</td>
+<td>June 30, 2026</td>
+</tr>
+<tr>
+<td>Next review</td>
+<td>September 30, 2026</td>
+</tr>
+<tr>
+<td>Classification</td>
+<td>Internal / Confidential</td>
+</tr>
+</tbody></table>
+<hr>
+<p><strong>End of Document</strong></p>
+<p><em>This is the single source of truth for the CAPSTONE project. Any feature, technical, or business decision should be traceable to this document. Update version number and changelog when making material changes.</em></p>
+
+</body>
+</html>
